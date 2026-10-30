@@ -24,7 +24,7 @@ Every screen has to earn its place with **one main point**. If a stranger can't 
 2. **Design** the screen with everything serving that purpose. Cut anything that competes with it.
 3. **Screenshot** it at its real viewport size to a PNG in the scratchpad (`screen-<N>-try<K>.png`). Use whatever tool is available: `playwright-cli` screenshot, chrome-devtools `take_screenshot`, pencil `export_nodes`, or render the slide HTML and capture it.
 4. **Show it to the viewer:**
-   - Screen 1: `Agent(subagent_type: "skills-sharing:clueless-viewer", description: "10s viewer", prompt: "Screen 1. Screenshot: <abs path>")` (use `"clueless-viewer"` if it was installed by hand into `~/.claude/agents/`)
+   - Screen 1: `Agent(subagent_type: "clueless-viewer", description: "10s viewer", prompt: "Screen 1. Screenshot: <abs path>")` (use `"skills-sharing:clueless-viewer"` if it was installed as a plugin)
    - Every later screen: `SendMessage(to: <viewer>, message: "Screen N. Screenshot: <abs path>")`
 5. **Judge.** Compare the viewer's `MAIN POINT` to the purpose.
    - **PASS:** it's the same claim, even in different words.
