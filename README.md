@@ -8,7 +8,7 @@ A beginner's guide to AI skills, plus three ready-made ones. They work in Claude
 |-------|--------------|
 | `/handoff` | Writes a `HANDOFF.md` so a fresh chat or a teammate can continue your unfinished work with zero context. |
 | `/ten-second-rule` | Gives every slide or page one main point, then has a clueless viewer take a 10-second look. The screen passes only if the viewer gets the same point. |
-| `/skill-builder` | Asks you a few questions and builds your own skill, then installs it. |
+| `/skill-builder` | Builds and installs your own skill straight from your description, ready to run as `/<name>`. |
 
 ## Install
 
@@ -92,7 +92,7 @@ Here's how it works:
 
 ## Make your own
 
-The easiest way is to install the skills, type `/skill-builder`, and answer its questions.
+The easiest way is to install the skills, type `/skill-builder` followed by what you want the skill to do.
 
 To write one by hand:
 
