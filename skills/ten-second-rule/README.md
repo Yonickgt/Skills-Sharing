@@ -1,8 +1,8 @@
 # The 10 Second Rule
 
-A Claude Code skill for building slides, UI screens, and websites where **every screen has one main point**, and a stranger gets it in 10 seconds.
+A skill for building slides, UI screens, and websites where **every screen has one main point**, and a stranger gets it in 10 seconds.
 
-Claude designs each screen and writes down its purpose first. Then a separate "clueless viewer" (a Sonnet subagent that knows nothing about the project) gets one look at a screenshot and says what it thinks the point is. The screen passes only if the viewer's answer matches the purpose.
+The AI designs each screen and writes down its purpose first. Then a separate "clueless viewer" (a second AI that knows nothing about the project) gets one look at a screenshot and says what it thinks the point is. The screen passes only if the viewer's answer matches the purpose.
 
 ## What it enforces
 
@@ -16,16 +16,16 @@ Claude designs each screen and writes down its purpose first. Then a separate "c
 ## Files
 
 - `skills/ten-second-rule/SKILL.md` is the skill.
-- `agents/clueless-viewer.md` is the viewer subagent (Sonnet, Read-only).
+- `skills/ten-second-rule/clueless-viewer.md` holds the viewer's instructions. In Claude Code it's installed as a Sonnet subagent with Read as its only tool. Other tools start their own subagent from it, and in chat apps you paste it into a second chat.
 
 ## Install
 
-This skill is part of the `skills-sharing` plugin. See the [repo README](../../README.md#install-on-any-device) for the two install commands.
+See the [repo README](../../README.md#install).
 
 ## Usage
 
 ```
-/skills-sharing:ten-second-rule build a 6-slide pitch deck for my coffee subscription app
+/ten-second-rule build a 6-slide pitch deck for my coffee subscription app
 ```
 
 Or just ask: *"use the 10 second rule on my landing page"*.
@@ -47,8 +47,8 @@ Or just ask: *"use the 10 second rule on my landing page"*.
 
 ## Requirements
 
-- **A way to take screenshots.** The skill uses whichever tool is available, such as the Playwright CLI, Chrome DevTools MCP, or Pencil.
-- **Access to Sonnet**, which the viewer agent runs on.
+- **A way to take screenshots.** The skill uses whichever tool is available, such as the Playwright CLI, Chrome DevTools MCP, or Pencil. Without one, you provide the screenshots.
+- **A second AI for the viewer.** That's a subagent where the tool supports them, or a second chat that you relay screenshots to.
 
 ## Limits
 

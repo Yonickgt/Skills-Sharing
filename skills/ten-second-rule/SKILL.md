@@ -10,11 +10,11 @@ Every screen has to earn its place with **one main point**. If a stranger can't 
 ## Roles
 
 - **You (orchestrator):** design each screen, write down its purpose, take a screenshot, and judge the verdict.
-- **Viewer (`clueless-viewer` agent, Sonnet, Read-only):** sees only screenshots and never the code, the purpose, or your notes.
+- **Viewer:** a separate AI that sees only screenshots and never the code, the purpose, or your notes. Its instructions are in `clueless-viewer.md`, next to this file.
 
 ## Hard rules
 
-1. **Exactly one viewer for the whole run.** Spawn it once for screen 1. For every screen after that, including retests, send a message to the **same** viewer with `SendMessage` (load it with `ToolSearch("select:SendMessage")` if it's deferred). Never spawn a second viewer. The viewer keeps screens 1..n-1 in context when it judges screen n, like a real audience.
+1. **Exactly one viewer for the whole run.** Start it once for screen 1. Send every later screen, including retests, to the **same** viewer. Never start a second one. The viewer keeps screens 1..n-1 in mind when it judges screen n, like a real audience.
 2. **Never leak the purpose.** Don't include the purpose, the design reasoning, file paths to code, or hints like "this slide is about..." in any message to the viewer. The only thing you send is the screenshot path.
 3. **Write the purpose before the viewer sees the screen.** Once a screen is tested, don't change its purpose to match what the viewer said.
 
@@ -22,10 +22,11 @@ Every screen has to earn its place with **one main point**. If a stranger can't 
 
 1. **Purpose.** Write down in one sentence: `Screen N purpose: <the one thing the viewer must take away>`. If you can't fit it in one sentence, the screen is doing too much, so split it.
 2. **Design** the screen with everything serving that purpose. Cut anything that competes with it.
-3. **Screenshot** it at its real viewport size to a PNG in the scratchpad (`screen-<N>-try<K>.png`). Use whatever tool is available: `playwright-cli` screenshot, chrome-devtools `take_screenshot`, pencil `export_nodes`, or render the slide HTML and capture it.
-4. **Show it to the viewer:**
-   - Screen 1: `Agent(subagent_type: "clueless-viewer", description: "10s viewer", prompt: "Screen 1. Screenshot: <abs path>")` (use `"skills-sharing:clueless-viewer"` if it was installed as a plugin)
-   - Every later screen: `SendMessage(to: <viewer>, message: "Screen N. Screenshot: <abs path>")`
+3. **Screenshot** it at its real viewport size to a PNG in the scratchpad (`screen-<N>-try<K>.png`). Use whatever tool is available: `playwright-cli` screenshot, chrome-devtools `take_screenshot`, pencil `export_nodes`, or render the slide HTML and capture it. If you can't take screenshots, ask the user for one.
+4. **Show it to the viewer.** Use the first option that works for you:
+   - **Claude Code:** for screen 1, run `Agent(subagent_type: "clueless-viewer", description: "10s viewer", prompt: "Screen 1. Screenshot: <abs path>")`. Use `"skills-sharing:clueless-viewer"` if it was installed as a plugin, or a general-purpose agent on Sonnet with `clueless-viewer.md` as its prompt if neither exists. For every later screen, run `SendMessage(to: <viewer>, message: "Screen N. Screenshot: <abs path>")`, loading it with `ToolSearch("select:SendMessage")` if it's deferred.
+   - **Another tool that has subagents:** start one subagent whose instructions are the body of `clueless-viewer.md`, send it only `"Screen N. Screenshot: <path>"`, and keep using that same subagent.
+   - **No subagents (chat apps):** ask the user to open a brand-new chat, paste in the body of `clueless-viewer.md`, and then send each screenshot there with `"Screen N"` and paste the reply back to you. They should use that same new chat for the whole run.
 5. **Judge.** Compare the viewer's `MAIN POINT` to the purpose.
    - **PASS:** it's the same claim, even in different words.
    - **FAIL:** it's a different point, only a side detail, too vague ("it's about the product"), or `CONFUSED BY` names something that competes with the main point.

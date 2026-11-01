@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "skills-sharing",
-  "description": "Shareable Claude Code skills from Yonickgt.",
+  "description": "Shareable cross-AI skills from Yonickgt.",
   "owner": {
     "name": "Yonickgt",
     "url": "https://github.com/Yonickgt"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "skills-sharing",
-      "description": "Skills: handoff, ten-second-rule.",
+      "description": "Skills: handoff, ten-second-rule, skill-builder.",
       "source": "./",
       "category": "productivity"
     }

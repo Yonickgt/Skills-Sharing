@@ -1,6 +1,6 @@
 # Handoff
 
-A Claude Code skill that writes a `HANDOFF.md` so a fresh agent or teammate can pick up your unfinished work **with zero context**. They'll have the repo, but not the conversation.
+A skill that writes a `HANDOFF.md` so a fresh agent or teammate can pick up your unfinished work **with zero context**. They'll have the repo, but not the conversation.
 
 ## What it enforces
 
@@ -14,16 +14,16 @@ A Claude Code skill that writes a `HANDOFF.md` so a fresh agent or teammate can 
 
 ## Install
 
-This skill is part of the `skills-sharing` plugin. See the [repo README](../../README.md#install-on-any-device) for the two install commands.
+See the [repo README](../../README.md#install).
 
 ## Usage
 
 ```
-/skills-sharing:handoff
+/handoff
 ```
 
 Or just say *"write a handoff"*, *"wrap up for the next session"*, or *"I'm out of context"*.
 
 **What you get:** a `HANDOFF.md` at the project root (or wherever you ask), plus a one-line chat reply with the file path and the next step. It doesn't commit the file unless you ask.
 
-**To continue:** in a new session, tell Claude *"read HANDOFF.md and continue"*.
+**To continue:** in a new session, tell your AI *"read HANDOFF.md and continue"*.

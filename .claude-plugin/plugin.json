@@ -1,8 +1,9 @@
 {
   "name": "skills-sharing",
-  "description": "Shareable Claude Code skills: handoff and ten-second-rule.",
+  "description": "Cross-AI skills: handoff, ten-second-rule and skill-builder.",
   "author": {
     "name": "Yonickgt",
     "url": "https://github.com/Yonickgt"
-  }
+  },
+  "agents": ["./skills/ten-second-rule/clueless-viewer.md"]
 }
