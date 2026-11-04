@@ -1,116 +1,127 @@
 # Skills-Sharing
 
+Three ready-made shortcuts ("skills") that teach Claude how to do a job your way, every time.
+
+> **Works in:** the Claude desktop app and Claude Code (the version you run in a terminal).
+> **Does not work in:** the Claude website (claude.ai in your browser). The website can't install these.
+
 > **AI assistants:** if a user gave you this link and asked you to install the skills, follow [INSTALL.md](INSTALL.md).
 
-A beginner's guide to AI skills, plus three ready-made ones. They work in Claude, ChatGPT, Gemini, Copilot, Codex, Cursor, and any other tool that follows the open [Agent Skills](https://agentskills.io) standard.
+---
 
-| Skill | What it does |
-|-------|--------------|
-| `/handoff` | Writes a `HANDOFF.md` so a fresh chat or a teammate can continue your unfinished work with zero context. |
-| `/ten-second-rule` | Gives every slide or page one main point, then has a clueless viewer take a 10-second look. The screen passes only if the viewer gets the same point. |
-| `/skill-builder` | Asks you a few questions and builds your own skill, then installs it. |
+## What is a skill?
+
+A skill is a saved set of instructions. Instead of explaining the same thing to Claude every time, you save it once, and from then on you type a short command like `/handoff` and Claude follows your instructions.
+
+Think of it like a recipe card Claude keeps in its drawer. You don't re-teach the recipe each time, you just say its name.
+
+## What's in here
+
+| Command | What it does for you |
+|---------|----------------------|
+| `/handoff` | Writes a note (`HANDOFF.md`) that sums up your unfinished work, so a fresh chat or a teammate can pick it up without any catching up. |
+| `/skill-builder` | Asks you a few questions, then builds a skill for you. Use it to turn any job you repeat into your own command. |
+| `/skill-template` | An empty skill with every part labelled. Open it to see how a skill file is built, and copy it as a starting point. |
+
+---
+
+## See it in action
+
+### 1. `/handoff`: pick up where you left off
+
+You paste the link to this repo and say "use the /handoff". Claude reads the skill and writes a `HANDOFF.md` file covering what you were doing, what was decided, and what's still left to do.
+
+![Using /handoff: Claude writes a HANDOFF.md that covers the work so far, the decisions made and what is still undone](images/handoff-example.png)
+
+Open that file in a brand new chat and Claude knows exactly where you stopped.
+
+### 2. `/skill-builder`: make your own command
+
+You paste the repo link and describe the job you want help with. Here the job is "add my course deadlines to Google Calendar using my exact rules".
+
+![The prompt: paste the repo link and ask the skill builder to build a skill that adds events to Google Calendar](images/skill-builder-prompt.png)
+
+### 3. The result: a skill, ready to save
+
+Claude asks its questions, then hands you a finished skill. You read it, and click **Save** to keep it or **Dismiss** to throw it away.
+
+![The result: a Save skill card for /course-calendar-events, with a Dismiss and a Save button](images/skill-builder-result.png)
+
+From now on, typing `/course-calendar-events` (or just saying "add this to my calendar") makes Claude follow those rules.
+
+---
 
 ## Install
 
-### The easy way: ask your AI
+Pick **one** of these. Then fully close and reopen your app, and type `/` to see the skills.
 
-Paste this into your AI app:
+### Option A: ask Claude (easiest)
+
+Open the Claude desktop app or Claude Code, and paste:
 
 > Install the skills from https://github.com/Yonickgt/Skills-Sharing
 
-Then fully close and reopen the app, and type `/` to find the skills. This works best in apps that can run commands (Claude Code or the Claude desktop app, Codex, Gemini CLI, Copilot in VS Code, Cursor). Chat apps like the Gemini app often can't open links at all. For those, see [Chat apps](#chat-apps-chatgpt-claudeai-gemini-app-microsoft-copilot) below.
+### Option B: double-click installer
 
-### Double-click installer
+1. On this page, click the green **Code** button, then **Download ZIP**, and unzip it anywhere.
+2. Double-click `Install-Windows.bat` (Windows) or `Install-Mac.command` (Mac).
+   On a Mac, if it gets blocked: right-click the file, choose **Open**, then **Open** again.
+3. Fully close and reopen Claude.
 
-1. On this page click the green **Code** button, then **Download ZIP**, and unzip it anywhere.
-2. Double-click `Install-Windows.bat` (Windows) or `Install-Mac.command` (Mac; if macOS blocks it, right-click it, choose **Open**, then **Open** again).
-3. Fully close your AI app and reopen it.
+The installer only copies the skill folders into your home folder. It's safe to run again to update.
 
-The installer only copies the skill folders into `.claude/skills` (Claude) and `.agents/skills` (Codex, Gemini CLI, Copilot and others) in your home folder. It's safe to run again to update.
+### Option C: Claude Code commands
 
-### Chat apps (ChatGPT, Claude.ai, Gemini app, Microsoft Copilot)
-
-Many chat apps can't open GitHub links, so pasting the link won't work there. Instead, open a skill's raw file below and copy the whole page:
-
-- [handoff](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/handoff/SKILL.md)
-- [ten-second-rule](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/ten-second-rule/SKILL.md) (also copy [clueless-viewer.md](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/ten-second-rule/clueless-viewer.md); you'll paste it into a second chat when the skill asks)
-- [skill-builder](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/skill-builder/SKILL.md)
-
-Then save it so it lasts beyond one chat:
-
-- **Gemini app:** create a **Gem**, paste the text into its **Instructions**, and save. Open the Gem whenever you want to use the skill.
-- **Microsoft Copilot:** paste the text into custom instructions.
-- **ChatGPT, Claude.ai:** these take real skill uploads. Download the repo ZIP, zip one folder from `skills/`, and upload it in the app's **Skills** settings. [INSTALL.md](INSTALL.md#b-youre-a-chat-app-with-no-file-access) has the steps.
-
-If you only paste the text into an ordinary chat, the skill works for that chat only, even if the AI says it has "saved" it.
-
-### Claude Code plugin
+In Claude Code, type these two lines, one at a time:
 
 ```
 /plugin marketplace add Yonickgt/Skills-Sharing
 /plugin install skills-sharing@skills-sharing
 ```
 
-Installed this way, the skills appear as `/skills-sharing:handoff` and so on.
+With this option the commands show up with a prefix, like `/skills-sharing:handoff`.
 
-## Where each AI looks for skills
-
-| App | Your skills (all projects) | One project only |
-|-----|----------------------------|------------------|
-| Claude Code | `~/.claude/skills/` | `.claude/skills/` |
-| Codex | `~/.agents/skills/` | `.agents/skills/` |
-| Gemini CLI | `~/.gemini/skills/` or `~/.agents/skills/` | `.gemini/skills/` or `.agents/skills/` |
-| GitHub Copilot (CLI, VS Code, cloud agent) | `~/.copilot/skills/` or `~/.agents/skills/` | `.github/skills/` or `.agents/skills/` |
-| ChatGPT, Claude.ai | Upload a zip in the app's Skills settings | — |
-
-`~/.agents/skills/` is the shared spot, so one copy there covers most tools.
-
-## What is a skill?
-
-A skill is a folder with one file in it, `SKILL.md`. The file starts with a short header (the frontmatter), followed by plain instructions:
-
-```markdown
----
-name: meeting-notes
-description: Turn a meeting transcript into notes with decisions and action items. Use when the user says "meeting notes", "/meeting-notes", or pastes a transcript.
 ---
 
-# Meeting Notes
+## Why not the website?
 
-1. Read the whole transcript.
-2. List every decision, with who made it.
-3. List action items as "- [ ] owner: task (due date)".
-
-Never invent a due date. If none was said, write "no date".
-```
-
-Here's how it works:
-
-- When a chat starts, the AI reads only the `name` and `description` of each installed skill. That's cheap, so you can install lots of them.
-- When your message matches a description, or you type `/meeting-notes`, the AI loads the rest of the file and follows it.
-- A skill folder can also hold extra files, like templates, reference lists or scripts. The steps in `SKILL.md` say when to open them. (`ten-second-rule` does this with `clueless-viewer.md`.)
+The Claude website lives in your browser, so it has no way to put files on your computer. These skills are files that sit in a folder on your computer, which the desktop app and Claude Code read when they start. The website never looks in that folder.
 
 ## Make your own
 
-The easiest way is to install the skills, type `/skill-builder`, and answer its questions.
+The easiest way is to type `/skill-builder` and answer the questions (see the example above).
 
-To write one by hand:
+If you'd rather write one by hand:
 
-1. Make a folder named after the skill, using lowercase letters and hyphens (`meeting-notes`).
-2. Put a `SKILL.md` inside it, with `name` (the same as the folder) and `description` in the header.
-3. Write the description as what the skill does plus "Use when..." with the exact words you'll type. The AI uses this line to decide when to load the skill, so it matters most.
-4. Write the body as numbered steps and short rules, not an essay. Say what the finished result looks like.
-5. Copy the folder to one of the locations in the table above, restart the app, and try it.
+1. Make a folder named after the skill, in lowercase with dashes (for example `meeting-notes`).
+2. Put one file in it called `SKILL.md`. Start the file with a short label block, then plain instructions:
+
+   ```markdown
+   ---
+   name: meeting-notes
+   description: Turn a meeting transcript into notes with decisions and action items. Use when the user says "meeting notes" or pastes a transcript.
+   ---
+
+   1. Read the whole transcript.
+   2. List every decision and who made it.
+   3. List action items as "- [ ] who: task (due date)".
+
+   Never invent a due date. If none was said, write "no date".
+   ```
+
+   The two lines at the top are the skill's name and its description. Claude reads the description to decide when to start the skill, so use the exact words you'll type.
+
+3. Copy the folder into `.claude/skills` inside your home folder, restart the app, and try it.
+
+Not sure what goes where? Type `/skill-template`, or open [`skills/skill-template/SKILL.md`](skills/skill-template/SKILL.md). It explains each part and has a blank copy to fill in.
 
 Tips:
 
 - **One skill, one job.** Two jobs means two skills.
-- **Write for a stranger.** The AI has never met you, so spell out formats, file names and what "done" means.
-- **Say what to do when things fail**, for example "if the tests fail, include the error text".
-- **No secrets.** Never put passwords or API keys in a skill.
+- **Write for a stranger.** Claude has never met you, so spell out what "done" looks like.
+- **Say what to do when something goes wrong.**
+- **No passwords or keys** in a skill.
 
-For worked examples, read [`skills/handoff/SKILL.md`](skills/handoff/SKILL.md) (simple) and [`skills/ten-second-rule/SKILL.md`](skills/ten-second-rule/SKILL.md) (uses a helper file and a second AI).
+## Remove a skill
 
-## Uninstall
-
-Delete the `handoff`, `ten-second-rule` and `skill-builder` folders from `~/.claude/skills` and `~/.agents/skills`, and delete `clueless-viewer.md` from `~/.claude/agents`.
+Delete its folder from `.claude/skills` in your home folder. To remove all three, delete `handoff`, `skill-builder` and `skill-template`.
