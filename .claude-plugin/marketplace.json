@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "skills-sharing",
-      "description": "Skills: handoff, skill-builder, skill-template.",
+      "description": "Skills: handoff, ten-second-rule, skill-builder, skill-template.",
       "source": "./",
       "category": "productivity"
     }

@@ -14,7 +14,8 @@ Each skill is a folder in `skills/` with a `SKILL.md` inside. Install all of the
    ```
    If `git` isn't installed, download and unzip `https://github.com/Yonickgt/Skills-Sharing/archive/refs/heads/main.zip` instead.
 2. Copy every folder in `skills/` into `~/.claude/skills/`.
-3. Before you overwrite a skill folder that already exists, tell the user and ask first.
-4. Tell the user to fully close and reopen the app, then type `/handoff`, `/skill-builder` or `/skill-template`.
+3. Copy `skills/ten-second-rule/clueless-viewer.md` into `~/.claude/agents/`. The `ten-second-rule` skill needs it.
+4. Before you overwrite a skill folder that already exists, tell the user and ask first.
+5. Tell the user to fully close and reopen the app, then type `/handoff`, `/ten-second-rule`, `/skill-builder` or `/skill-template`.
 
-On Windows, `~` means `%USERPROFILE%`. You can also run the repo's `install.ps1` (Windows) or `Install-Mac.command` (Mac), which do step 2 for you.
+On Windows, `~` means `%USERPROFILE%`. You can also run the repo's `install.ps1` (Windows) or `Install-Mac.command` (Mac), which do steps 2 and 3 for you.

@@ -1,8 +1,9 @@
 {
   "name": "skills-sharing",
-  "description": "Claude skills: handoff, skill-builder and skill-template.",
+  "description": "Claude skills: handoff, ten-second-rule, skill-builder and skill-template.",
   "author": {
     "name": "Yonickgt",
     "url": "https://github.com/Yonickgt"
-  }
+  },
+  "agents": ["./skills/ten-second-rule/clueless-viewer.md"]
 }

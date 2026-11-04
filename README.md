@@ -20,6 +20,7 @@ Think of it like a recipe card Claude keeps in its drawer. You don't re-teach th
 | Command | What it does for you |
 |---------|----------------------|
 | `/handoff` | Writes a note (`HANDOFF.md`) that sums up your unfinished work, so a fresh chat or a teammate can pick it up without any catching up. |
+| `/ten-second-rule` | Checks a slide or web page. Every screen gets one main point, then a "clueless viewer" gets 10 seconds to look at it. It only passes if the viewer gets the same point you meant. |
 | `/skill-builder` | Builds a skill straight from your description, then saves it as your own `/command`. Use it to turn any job you repeat into a shortcut. |
 | `/skill-template` | An empty skill with every part labelled. Open it to see how a skill file is built, and copy it as a starting point. |
 
@@ -124,4 +125,4 @@ Tips:
 
 ## Remove a skill
 
-Delete its folder from `.claude/skills` in your home folder. To remove all three, delete `handoff`, `skill-builder` and `skill-template`.
+Delete its folder from `.claude/skills` in your home folder. To remove all four, delete `handoff`, `ten-second-rule`, `skill-builder` and `skill-template`, plus `clueless-viewer.md` from `.claude/agents`.
