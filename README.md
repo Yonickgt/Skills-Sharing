@@ -20,7 +20,7 @@ Think of it like a recipe card Claude keeps in its drawer. You don't re-teach th
 | Command | What it does for you |
 |---------|----------------------|
 | `/handoff` | Writes a note (`HANDOFF.md`) that sums up your unfinished work, so a fresh chat or a teammate can pick it up without any catching up. |
-| `/skill-builder` | Asks you a few questions, then builds a skill for you. Use it to turn any job you repeat into your own command. |
+| `/skill-builder` | Builds a skill straight from your description, then saves it as your own `/command`. Use it to turn any job you repeat into a shortcut. |
 | `/skill-template` | An empty skill with every part labelled. Open it to see how a skill file is built, and copy it as a starting point. |
 
 ---
@@ -43,7 +43,7 @@ You paste the repo link and describe the job you want help with. Here the job is
 
 ### 3. The result: a skill, ready to save
 
-Claude asks its questions, then hands you a finished skill. You read it, and click **Save** to keep it or **Dismiss** to throw it away.
+Claude turns that description into a finished skill. You read it, and click **Save** to keep it or **Dismiss** to throw it away.
 
 ![The result: a Save skill card for /course-calendar-events, with a Dismiss and a Save button](images/skill-builder-result.png)
 
@@ -89,7 +89,7 @@ The Claude website lives in your browser, so it has no way to put files on your 
 
 ## Make your own
 
-The easiest way is to type `/skill-builder` and answer the questions (see the example above).
+The easiest way is to type `/skill-builder` followed by what you want the skill to do (see the example above).
 
 If you'd rather write one by hand:
 
