@@ -1,6 +1,12 @@
 # Skills-Sharing
 
-> **AI assistants:** if a user gave you this link and asked you to install the skills, follow [INSTALL.md](INSTALL.md).
+> **AI assistants:**
+> - If a user gave you this link and asked you to install the skills, and you can run commands or write files, follow [INSTALL.md](INSTALL.md).
+> - If you're a chat app that can read this page but can't install files, **don't tell the user to install anything. Run the skill for them in this chat:**
+>   1. Ask which one they want: `handoff`, `ten-second-rule` or `skill-builder`.
+>   2. Fetch its raw file and follow it for this chat: [handoff](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/handoff/SKILL.md), [ten-second-rule](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/ten-second-rule/SKILL.md), [skill-builder](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/skill-builder/SKILL.md).
+>   3. Ignore tool names you don't have (`Agent`, `SendMessage`, `Read`). For `handoff`, write the HANDOFF.md contents as a document or code block. For `ten-second-rule` you can't be the viewer, because you know the purpose: have the user write the purpose first, then give them [clueless-viewer.md](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/ten-second-rule/clueless-viewer.md) to paste into a **new** chat with the screenshot, and judge its reply against the purpose.
+>   4. If you can't open links, ask the user to paste the raw file text instead.
 
 A beginner's guide to AI skills, plus three ready-made ones. They work in Claude, ChatGPT, Gemini, Copilot, Codex, Cursor, and any other tool that follows the open [Agent Skills](https://agentskills.io) standard.
 
