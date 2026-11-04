@@ -1,14 +1,8 @@
 # Skills-Sharing
 
-> **AI assistants:**
-> - If a user gave you this link and asked you to install the skills, and you can run commands or write files, follow [INSTALL.md](INSTALL.md).
-> - If you're a chat app that can read this page but can't install files, **don't tell the user to install anything. Run the skill for them in this chat:**
->   1. Ask which one they want: `handoff`, `ten-second-rule` or `skill-builder`.
->   2. Fetch its raw file and follow it for this chat: [handoff](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/handoff/SKILL.md), [ten-second-rule](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/ten-second-rule/SKILL.md), [skill-builder](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/skill-builder/SKILL.md).
->   3. Ignore tool names you don't have (`Agent`, `SendMessage`, `Read`). For `handoff`, write the HANDOFF.md contents as a document or code block. For `ten-second-rule` you can't be the viewer, because you know the purpose: have the user write the purpose first, then give them [clueless-viewer.md](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/ten-second-rule/clueless-viewer.md) to paste into a **new** chat with the screenshot, and judge its reply against the purpose.
->   4. If you can't open links, ask the user to paste the raw file text instead.
+> **AI assistants:** if a user gave you this link and asked you to install the skills, follow [INSTALL.md](INSTALL.md).
 
-A beginner's guide to AI skills, plus three ready-made ones. They work in Claude, ChatGPT, Gemini, Copilot, Codex, Cursor, and any other tool that follows the open [Agent Skills](https://agentskills.io) standard.
+A beginner's guide to AI skills, plus three ready-made ones. They work in the Claude desktop app and in command-line AI tools (Claude Code, Codex, Gemini CLI, Copilot CLI) that follow the open [Agent Skills](https://agentskills.io) standard.
 
 | Skill | What it does |
 |-------|--------------|
@@ -24,7 +18,7 @@ Paste this into your AI app:
 
 > Install the skills from https://github.com/Yonickgt/Skills-Sharing
 
-Then fully close and reopen the app, and type `/` to find the skills. This works best in apps that can run commands (Claude Code or the Claude desktop app, Codex, Gemini CLI, Copilot in VS Code, Cursor). Chat apps like the Gemini app often can't open links at all. For those, see [Chat apps](#chat-apps-chatgpt-claudeai-gemini-app-microsoft-copilot) below.
+Then fully close and reopen the app, and type `/` to find the skills. This needs an app that can run commands (Claude Code, the Claude desktop app, Codex, Gemini CLI, Copilot CLI). If yours can't, use the double-click installer below.
 
 ### Double-click installer
 
@@ -33,22 +27,6 @@ Then fully close and reopen the app, and type `/` to find the skills. This works
 3. Fully close your AI app and reopen it.
 
 The installer only copies the skill folders into `.claude/skills` (Claude) and `.agents/skills` (Codex, Gemini CLI, Copilot and others) in your home folder. It's safe to run again to update.
-
-### Chat apps (ChatGPT, Claude.ai, Gemini app, Microsoft Copilot)
-
-Many chat apps can't open GitHub links, so pasting the link won't work there. Instead, open a skill's raw file below and copy the whole page:
-
-- [handoff](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/handoff/SKILL.md)
-- [ten-second-rule](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/ten-second-rule/SKILL.md) (also copy [clueless-viewer.md](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/ten-second-rule/clueless-viewer.md); you'll paste it into a second chat when the skill asks)
-- [skill-builder](https://raw.githubusercontent.com/Yonickgt/Skills-Sharing/main/skills/skill-builder/SKILL.md)
-
-Then save it so it lasts beyond one chat:
-
-- **Gemini app:** create a **Gem**, paste the text into its **Instructions**, and save. Open the Gem whenever you want to use the skill.
-- **Microsoft Copilot:** paste the text into custom instructions.
-- **ChatGPT, Claude.ai:** these take real skill uploads. Download the repo ZIP, zip one folder from `skills/`, and upload it in the app's **Skills** settings. [INSTALL.md](INSTALL.md#b-youre-a-chat-app-with-no-file-access) has the steps.
-
-If you only paste the text into an ordinary chat, the skill works for that chat only, even if the AI says it has "saved" it.
 
 ### Claude Code plugin
 
@@ -67,7 +45,6 @@ Installed this way, the skills appear as `/skills-sharing:handoff` and so on.
 | Codex | `~/.agents/skills/` | `.agents/skills/` |
 | Gemini CLI | `~/.gemini/skills/` or `~/.agents/skills/` | `.gemini/skills/` or `.agents/skills/` |
 | GitHub Copilot (CLI, VS Code, cloud agent) | `~/.copilot/skills/` or `~/.agents/skills/` | `.github/skills/` or `.agents/skills/` |
-| ChatGPT, Claude.ai | Upload a zip in the app's Skills settings | — |
 
 `~/.agents/skills/` is the shared spot, so one copy there covers most tools.
 

@@ -26,7 +26,6 @@ Every screen has to earn its place with **one main point**. If a stranger can't 
 4. **Show it to the viewer.** Use the first option that works for you:
    - **Claude Code:** for screen 1, run `Agent(subagent_type: "clueless-viewer", description: "10s viewer", prompt: "Screen 1. Screenshot: <abs path>")`. Use `"skills-sharing:clueless-viewer"` if it was installed as a plugin, or a general-purpose agent on Sonnet with `clueless-viewer.md` as its prompt if neither exists. For every later screen, run `SendMessage(to: <viewer>, message: "Screen N. Screenshot: <abs path>")`, loading it with `ToolSearch("select:SendMessage")` if it's deferred.
    - **Another tool that has subagents:** start one subagent whose instructions are the body of `clueless-viewer.md`, send it only `"Screen N. Screenshot: <path>"`, and keep using that same subagent.
-   - **No subagents (chat apps):** ask the user to open a brand-new chat, paste in the body of `clueless-viewer.md`, and then send each screenshot there with `"Screen N"` and paste the reply back to you. They should use that same new chat for the whole run.
 5. **Judge.** Compare the viewer's `MAIN POINT` to the purpose.
    - **PASS:** it's the same claim, even in different words.
    - **FAIL:** it's a different point, only a side detail, too vague ("it's about the product"), or `CONFUSED BY` names something that competes with the main point.

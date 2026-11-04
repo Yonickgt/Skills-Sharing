@@ -16,7 +16,7 @@ The AI designs each screen and writes down its purpose first. Then a separate "c
 ## Files
 
 - `skills/ten-second-rule/SKILL.md` is the skill.
-- `skills/ten-second-rule/clueless-viewer.md` holds the viewer's instructions. In Claude Code it's installed as a Sonnet subagent with Read as its only tool. Other tools start their own subagent from it, and in chat apps you paste it into a second chat.
+- `skills/ten-second-rule/clueless-viewer.md` holds the viewer's instructions. In Claude Code it's installed as a Sonnet subagent with Read as its only tool. Other tools start their own subagent from it.
 
 ## Install
 
@@ -48,7 +48,7 @@ Or just ask: *"use the 10 second rule on my landing page"*.
 ## Requirements
 
 - **A way to take screenshots.** The skill uses whichever tool is available, such as the Playwright CLI, Chrome DevTools MCP, or Pencil. Without one, you provide the screenshots.
-- **A second AI for the viewer.** That's a subagent where the tool supports them, or a second chat that you relay screenshots to.
+- **A subagent for the viewer.** Claude Code and most command-line AI tools support them.
 
 ## Limits
 
